@@ -12,13 +12,18 @@
 
 #include "libft.h"
 
-int	strncmp(const char *str1, const char *str2, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	while (*str1 == *str2 && n > 0)
+	size_t	t;
+
+	t = 0;
+	while (s1[t] && s2[t] && t < n && s1[t] == s2[t])
 	{
-		str1++;
-		str2++;
-		n--;
+		t++;
 	}
-	return (*str1 - *str2);
+	if (t == n)
+	{
+		return (0);
+	}
+	return ((unsigned char )s1[t] - (unsigned char)s2[t]);
 }

@@ -10,23 +10,34 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
-{
-	unsigned int	i;
-	unsigned int	len;
+#include "libft.h"
 
-	i = 0;
-	len = 0;
-	while (src[len])
-		len++;
-	if (size > 0)
-	{
-		while (src[i] != '\0' && i < size - 1)
-		{
-			dest[i] = src[i];
-			i++;
-		}
-	}
-	dest[i] = '\0';
-	return (len);
+unsigned int ft_strlcpy(char *dest, const char *src, unsigned int size)
+{
+    unsigned int i;
+    unsigned int len;
+
+    i = 0;
+    len = 0;
+
+    // Calculate the length of the source string
+    while (src[len])
+        len++;
+
+    // Check if the size is greater than 0
+    if (size > 0)
+    {
+        // Copy characters from src to dest
+        while (src[i] != '\0' && i < size - 1)
+        {
+            dest[i] = src[i];
+            i++;
+        }
+
+        // Null-terminate the destination string
+        dest[i] = '\0';
+    }
+
+    // Return the length of the source string
+    return len;
 }

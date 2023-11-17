@@ -1,4 +1,4 @@
-#include <stdlib.h>
+#include "libft.h"
 
 static int count_words(const char *s, char c) {
     int count = 0;
@@ -66,24 +66,3 @@ char **ft_split(char const *s, char c) {
     return result;
 }
 
-int main() {
-    const char *input = "Merhaba,Dünya,Nasılsın";
-    char separator = ',';
-
-    char **result = ft_split(input, separator);
-    if (result == NULL) {
-        printf("Bellek tahsis hatası\n");
-        return 1;
-    }
-
-    // Elde edilen bölünmüş string dizisini kullan
-    int i = 0;
-    while (result[i] != NULL) {
-        printf("%s\n", result[i]);
-        free(result[i]);
-        i++;
-    }
-    free(result);
-
-    return 0;
-}
